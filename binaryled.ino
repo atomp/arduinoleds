@@ -13,6 +13,7 @@ const int LEDS = 8;    //Number of output pins used for LEDs
 
 void setup() {
   Serial.begin(9600);
+  Serial.write(1);    //Write to say we are ready for input
   
   for(int i=0; i<LEDS; i++) {
     pinMode(ledPins[i], OUTPUT);
@@ -30,7 +31,6 @@ void loop() {
     }
     
   }
-  delay(100);    //Wait 100ms before polling again
 }
 
 //Flash the lights to show the number can't be displayed

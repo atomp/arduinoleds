@@ -7,7 +7,7 @@ port ='/dev/ttyACM0'
 
 #Connect to the arduino, 9600 baud rate
 try:
-  arduino = serial.Serial(port,9600)
+  arduino = serial.Serial(port,115200)
 except:
   print "Failed to connect on ",port
 
@@ -21,4 +21,4 @@ while True:
     arduino.write(str(no))
   except:
     print "failed to send!"
-  time.sleep(2)
+  time.sleep(1.5)

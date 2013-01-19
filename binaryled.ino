@@ -12,7 +12,7 @@ int ledPins[] = {2,3,4,5,6,7,8,9};
 const int LEDS = 8;    //Number of output pins used for LEDs
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.write(1);    //Write to say we are ready for input
   
   for(int i=0; i<LEDS; i++) {

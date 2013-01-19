@@ -17,7 +17,7 @@ arduino.read()
 while True:
   try:
     #Write a random number to board
-    no = random.randrange(0,255)
+    no = random.randrange(0,1023)
     arduino.write(str(no))
   except:
     print "failed to send!"

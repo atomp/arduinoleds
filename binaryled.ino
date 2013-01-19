@@ -8,8 +8,8 @@
  * @date 2013-01-13
  */
 
-int ledPins[] = {2,3,4,5,6,7,8,9};
-const int LEDS = 8;    //Number of output pins used for LEDs
+int ledPins[] = {2,3,4,5,6,7,8,9,10,11};
+const int LEDS = 10;    //Number of output pins used for LEDs
 
 void setup() {
   Serial.begin(115200);
@@ -24,13 +24,22 @@ void loop() {
   if(Serial.available() > 0) {
     int input = Serial.parseInt();
     
-    if(input < 256 && input >= 0) {    //Number can be displayed in 8 bits
+    if(input < maxNumber() && input >= 0) {    //Number can be displayed in 8 bits
       binary(input);
     } else {    //Number too high or low
       numberError();
     }
     
   }
+}
+
+//Work out the max number passed in
+int maxNumber() {
+  int no=2;
+  for(int i=0; i<LEDS-1; i++) {
+   no = no*2;
+  }
+  return no;
 }
 
 //Flash the lights to show the number can't be displayed
